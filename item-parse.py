@@ -13,6 +13,7 @@ for item_in in data:
     item_out["pubTime"] = "2009-07-01T00:00:00.000+0000"
     item_out["chapterNum"] = 10
     item_out["mainAuthor"] = "暂无"
+    item_out["imgurl"] = item_in["imgurl"]
     if item_in["type"] == "Book":
         item_out["type"] = 0
     elif item_in["type"] == "Anime":
@@ -30,7 +31,7 @@ for item_in in data:
     h = httplib2.Http(".cache")
     resp, content = h.request("http://202.120.40.8:30741/item/add",
                               "POST", body=req,
-                              headers={"Authorization": "Bearer efd8fe7f-a5b3-48a3-b57d-21507b028167",
+                              headers={"Authorization": "Bearer 1f2e047c-03b5-4c5f-a637-293f2dca9f20",
                                        "Content-Type": "application/json"})
     print(content)
 json.dump(output, open('./item-output.json', 'w'), ensure_ascii=False, indent=1)

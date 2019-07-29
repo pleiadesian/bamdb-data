@@ -48,14 +48,10 @@ with open("./a.sql") as f:
                 item_data = dict()
                 item_data["itemId"] = columns[0]
                 item_data["title"] = columns[4][1:-1]
+                # no chinese title
                 item_data["imgurl"] = columns[2][1:-1]
                 item_data["type"] = columns[3][1:-1]
-                # item_data["info"] = dict()
-                # info = json.loads(columns[6][-1:1])
-                # item_data["info"] = info
                 item_data["score_details"] = dict()
-                # for i in range(1, 10):
-                #     item_data["score_details"][str(i)] = json.loads(columns[7])[str(i)]
                 temp = columns[-19].split(':')
                 item_data["score_details"]["total"] = columns[-19].split(':')[1][3:-2]
                 item_data["score_details"]["10"] = columns[-18].split(':')[1][3:-2]
