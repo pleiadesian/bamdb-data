@@ -48,7 +48,8 @@ with open("./a.sql") as f:
                 item_data = dict()
                 item_data["itemId"] = columns[0]
                 item_data["title"] = columns[4][1:-1]
-                # no chinese title
+                if item_data["title"] == "":
+                    item_data["title"] = columns[1][1:-1]
                 item_data["imgurl"] = columns[2][1:-1]
                 item_data["type"] = columns[3][1:-1]
                 item_data["score_details"] = dict()

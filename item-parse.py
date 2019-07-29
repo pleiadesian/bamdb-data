@@ -31,7 +31,10 @@ for item_in in data:
     h = httplib2.Http(".cache")
     resp, content = h.request("http://202.120.40.8:30741/item/add",
                               "POST", body=req,
-                              headers={"Authorization": "Bearer 1f2e047c-03b5-4c5f-a637-293f2dca9f20",
+                              headers={"Authorization": "Bearer c36f0c18-1ddd-4124-b629-9acb13289ae8",
                                        "Content-Type": "application/json"})
     print(content)
+    resp1, content1 = h.request("http://202.120.40.8:30741/rating/add/itemid/"+json.loads(content)["id"], "POST",
+                                headers={"Authorization": "Bearer c36f0c18-1ddd-4124-b629-9acb13289ae8",
+                                         "Content-Type": "application/json"})
 json.dump(output, open('./item-output.json', 'w'), ensure_ascii=False, indent=1)
