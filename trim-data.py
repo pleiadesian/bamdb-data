@@ -76,6 +76,6 @@ with open("./a.sql") as f:
                 item_data["on_hold"] = columns[-4]
                 item_data["dropped"] = columns[-3]
                 item_set.append(item_data)
-    json.dump(relation_set, open('./bamgumi-relation.json', 'w'), ensure_ascii=False, indent=1)
-    json.dump(tag_set, open('./bamgumi-tag.json', 'w'), ensure_ascii=False, indent=1)
-    json.dump(item_set, open('./bamgumi-item.json', 'w'), ensure_ascii=False, indent=1)
+    json.dump(relation_set, open('./bangumi-relation.json', 'w'), ensure_ascii=False, indent=1)
+    json.dump(tag_set, open('./bangumi-tag.json', 'w'), ensure_ascii=False, indent=1)
+    json.dump(item_set, open('./bangumi-item.json', 'w'), ensure_ascii=False, indent=1)
