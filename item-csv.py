@@ -4,17 +4,18 @@ data = json.load(open("./bangumi-item.json", 'r'))
 items = []
 ratings = []
 
-line = ["itemname", "pub_time", "chapter_num", "main_author", "imgurl", "type"]
-items.append(",".join(line))
+line = ["itemname", "chapter_num", "main_author", "imgurl", "type"]
+items.append(",".join(line)+"\n")
 rating_line = ["avg_score", "item_id", "rank", "score_1", "score_2", "score_3", "score_4", "score_5", "score_6",
                "score_7", "score_8", "score_9", "score_10", "tot_score_num", "type"]
-ratings.append(",".join(rating_line))
-item_id = 50183
+ratings.append(",".join(rating_line)+"\n")
+item_id = 50186
 chara = ","
+count = 0
 for item_in in data:
     line = list()
     line.append("\""+item_in["title"]+"\"")
-    line.append("\"2009-07-01T00:00:00.000\"")
+    # line.append("090701")
     line.append(str(10))
     line.append("\"暂无\"")
     line.append("\""+item_in["imgurl"]+"\"")
@@ -33,6 +34,7 @@ for item_in in data:
         item_type = 6
     line.append(str(item_type))
     line_str = chara.join(line)
+    line_str = line_str + "\n"
     items.append(line_str)
     score = list()
     score.append(0)
@@ -54,7 +56,26 @@ for item_in in data:
     rating_line.append(item_in["score_details"]["total"])
     rating_line.append(str(item_type))
     rating_str = chara.join(rating_line)
+    rating_str = rating_str + "\n"
     ratings.append(rating_str)
     item_id += 1
-open("./bangumi-item.csv", "w").writelines(items)
-open("./bangumi-rating.csv", "w").writelines(ratings)
+    count += 1
+    print(count)
+    if count == 111622:
+        open("./bangumi-item1.csv", "w").writelines(items)
+        open("./bangumi-rating1.csv", "w").writelines(ratings)
+        items.clear()
+        items.append(",".join(line) + "\n")
+        ratings.clear()
+        ratings.append(",".join(rating_line) + "\n")
+        count = 0
+    if count == 111622:
+        open("./bangumi-item2.csv", "w").writelines(items)
+        open("./bangumi-rating2.csv", "w").writelines(ratings)
+        items.clear()
+        items.append(",".join(line) + "\n")
+        ratings.clear()
+        ratings.append(",".join(rating_line) + "\n")
+        count = 0
+open("./bangumi-item3.csv", "w").writelines(items)
+open("./bangumi-rating3.csv", "w").writelines(ratings)
