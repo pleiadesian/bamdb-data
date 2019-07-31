@@ -10,6 +10,11 @@ output = []
 data = json.load(open("./bangumi-item.json", 'r'))
 i = 50186
 for item_in in data:
+    if i < 80000:
+        i += 1
+        continue
+    if i == 90000:
+        break
     h = httplib2.Http(".cache")
     resp, content = h.request("http://mirror.api.bgm.rin.cat/subject/"+str(item_in["itemId"]) +
                               "?responseGroup=medium", "GET")
