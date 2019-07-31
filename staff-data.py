@@ -10,11 +10,9 @@ output = []
 data = json.load(open("./bangumi-item.json", 'r'))
 i = 50186
 for item_in in data:
-    if i < 60000:
+    if i < 150000:
         i += 1
         continue
-    if i == 70000:
-        break
     h = httplib2.Http(".cache")
     resp, content = h.request("http://mirror.api.bgm.rin.cat/subject/"+str(item_in["itemId"]) +
                               "?responseGroup=medium", "GET")
@@ -33,4 +31,4 @@ for item_in in data:
     staffs.append(sql_line)
     i += 1
     print(i)
-open('./bangumi-staff.sql', 'w').writelines(staffs)
+open('./bangumi-staff15.sql', 'w').writelines(staffs)
