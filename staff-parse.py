@@ -7,7 +7,7 @@ import httplib2
 
 
 newlines = []
-for i in range(5, 15):
+for i in range(5, 16):
     with open("./bangumi-staff"+str(i)+".sql") as sqlfile:
         lines = sqlfile.readlines()
         for line in lines:
