@@ -7,11 +7,12 @@ import httplib2
 
 
 newlines = []
-with open("./bangumi-staff5.sql") as sqlfile:
-    lines = sqlfile.readlines()
-    for line in lines:
-        line = line.replace("author=", "author=\"")
-        line = line.replace(" where", "\" where")
-        line = line.replace("\n", ";\n")
-        newlines.append(line)
-open('./bamdb-staff5.sql', 'w').writelines(newlines)
+for i in range(5, 15):
+    with open("./bangumi-staff"+str(i)+".sql") as sqlfile:
+        lines = sqlfile.readlines()
+        for line in lines:
+            line = line.replace("author=", "author=\"")
+            line = line.replace(" where", "\" where")
+            line = line.replace("\n", ";\n")
+            newlines.append(line)
+open('./bamdb-staff.sql', 'w').writelines(newlines)
