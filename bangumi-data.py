@@ -7,7 +7,7 @@ import httplib2
 
 users = []
 
-for i in range(501, 10000):
+for i in range(729, 10000):
     for uid in range(100*(i-1), 100*i-1):
         h = httplib2.Http(".cache")
         resp, content = h.request("http://mirror.api.bgm.rin.cat/user/"+str(uid) +
@@ -38,4 +38,4 @@ for i in range(501, 10000):
             continue
         users.append(user_info)
         print(str(uid)+"\n")
-    json.dump(users, open('./bangumi20.json', 'w'), ensure_ascii=False, indent=1)
+    json.dump(users, open('./bangumi21.json', 'w'), ensure_ascii=False, indent=1)
