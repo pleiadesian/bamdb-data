@@ -31,10 +31,7 @@ with open("./a.sql") as f:
                 tag_data = dict()
                 tag_data["itemId"] = columns[0]
                 tag_data["content"] = columns[1][1:-1]
-                if '肉' in tag_data["content"] or '里' in tag_data['content'] or '奶' in tag_data['content'] or\
-                        '乳' in tag_data['content'] or '色' in tag_data['content'] or '淫' in tag_data['content'] or\
-                        '奸' in tag_data['content'] or '裸' in tag_data['content'] or '妹' in tag_data['content'] or\
-                        '妻' in tag_data['content'] or '胸' in tag_data['content']:
+                if 'abc' in tag_data["content"]:
                     continue
                 tag_data["count"] = columns[2]
                 tag_set.append(tag_data)
